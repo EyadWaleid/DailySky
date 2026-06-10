@@ -1,6 +1,5 @@
 //
 //  HomeView.swift
-//  DailySky
 //
 //  Created by Eyad waleed on 05/06/2026.
 //
@@ -9,7 +8,17 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Image("night")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            
+            ScrollView {
+                LocationWeatherData()
+                    .padding(.horizontal, 24)
+            }
+        }
     }
 }
 
