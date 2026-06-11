@@ -18,9 +18,9 @@ struct HomeView: View {
                         .foregroundColor(.white)
                 }
             case .success(let weather):
-          NavigationStack{
+    
               HomeBody(weather: weather , isDetail: false)
-          }
+          
             case .error(let message):
                 VStack(spacing: 12) {
                     Image(systemName: "wifi.slash")

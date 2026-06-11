@@ -24,13 +24,12 @@ final class LocalHomeService: LocalHomeServiceProtocol {
     }
     
     private func makeLocation(from response: WeatherResponse) -> LocationEntity {
-        let entity        = LocationEntity(context: context)
-        entity.cityName   = response.location.name
-        entity.country    = response.location.country
-        entity.region     = response.location.region
+        let entity = fetchExistingWeather()?.location ?? LocationEntity(context: context)
+        entity.cityName = response.location.name
+        entity.country  = response.location.country
+        entity.region   = response.location.region
         return entity
     }
-    
     private func makeCurrent(from response: WeatherResponse, existing: CurrentWeatherEntity?) -> CurrentWeatherEntity {
         let entity            = existing ?? CurrentWeatherEntity(context: context)
         entity.temp           = response.currentWeather.tempC
@@ -49,21 +48,20 @@ final class LocalHomeService: LocalHomeServiceProtocol {
     }
     
     private func makeForecastDays(from response: WeatherResponse) -> [ForecastDayEntity] {
+        if let existing = fetchExistingWeather()?.forecastArray as? Set<ForecastDayEntity> {
+            existing.forEach { context.delete($0) }
+        }
+
         let allHours  = response.forecast.forecastday.flatMap { $0.hour }
         let firstDate = response.forecast.forecastday[0].date
         var seenDates = Set<String>()
-        
+
         return allHours.compactMap { hour -> ForecastDayEntity? in
             let date = String(hour.time.prefix(10))
-            guard date != firstDate              else { return nil }
-            guard !seenDates.contains(date)      else { return nil }
+            guard date != firstDate         else { return nil }
+            guard !seenDates.contains(date) else { return nil }
             seenDates.insert(date)
-            
-            return makeForecastDay(
-                hour: hour,
-                date: date,
-                forecastDays: response.forecast.forecastday
-            )
+            return makeForecastDay(hour: hour, date: date, forecastDays: response.forecast.forecastday)
         }
     }
     

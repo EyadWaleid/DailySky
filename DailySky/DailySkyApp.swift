@@ -10,13 +10,10 @@ import SwiftUI
 @main
 struct DailySkyApp: App {
     private let container = DIContainer.shared
-
-
     var body: some Scene {
         WindowGroup {
-            HomeView() .environment(
+           TabBar() .environment(
                 \.managedObjectContext,container.coreDataController.container.viewContext )
-              
         }
     }
 }

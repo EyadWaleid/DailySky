@@ -23,6 +23,10 @@
 		6191A9582FD3632100A3F8F5 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6191A9572FD3632100A3F8F5 /* SpaceGrotesk-SemiBold.ttf */; };
 		6191A95A2FD3632A00A3F8F5 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6191A9592FD3632900A3F8F5 /* SpaceGrotesk-Bold.ttf */; };
 		6191A95C2FD3633400A3F8F5 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6191A95B2FD3633400A3F8F5 /* SpaceGrotesk-Medium.ttf */; };
+		61C6FAE92FDB121900C433D5 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6FAE82FDB121900C433D5 /* TabBar.swift */; };
+		61C6FAEB2FDB124600C433D5 /* FavouriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6FAEA2FDB124600C433D5 /* FavouriteView.swift */; };
+		61C6FAED2FDB1B6000C433D5 /* HourItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6FAEC2FDB1B6000C433D5 /* HourItem.swift */; };
+		61C6FAEF2FDB1F1A00C433D5 /* ForecastDaysList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6FAEE2FDB1F1A00C433D5 /* ForecastDaysList.swift */; };
 		61C90B102FD3744700482687 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C90B0F2FD3744700482687 /* SpaceGrotesk-Light.ttf */; };
 		61CACB0E2FD9CAC100003FE2 /* LocalHomeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CACB0D2FD9CAC100003FE2 /* LocalHomeServiceProtocol.swift */; };
 		61CACB102FD9D8D700003FE2 /* HomeServiceLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CACB0F2FD9D8D700003FE2 /* HomeServiceLocal.swift */; };
@@ -83,6 +87,10 @@
 		6191A9572FD3632100A3F8F5 /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
 		6191A9592FD3632900A3F8F5 /* SpaceGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Bold.ttf"; sourceTree = "<group>"; };
 		6191A95B2FD3633400A3F8F5 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
+		61C6FAE82FDB121900C433D5 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		61C6FAEA2FDB124600C433D5 /* FavouriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteView.swift; sourceTree = "<group>"; };
+		61C6FAEC2FDB1B6000C433D5 /* HourItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourItem.swift; sourceTree = "<group>"; };
+		61C6FAEE2FDB1F1A00C433D5 /* ForecastDaysList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDaysList.swift; sourceTree = "<group>"; };
 		61C90B0E2FD3639200482687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		61C90B0F2FD3744700482687 /* SpaceGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Light.ttf"; sourceTree = "<group>"; };
 		61CACB0D2FD9CAC100003FE2 /* LocalHomeServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalHomeServiceProtocol.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 		6191A91A2FD34A0B00A3F8F5 /* DailySky */ = {
 			isa = PBXGroup;
 			children = (
+				61C6FAE42FDB11B000C433D5 /* Fav */,
 				61C90B0E2FD3639200482687 /* Info.plist */,
 				6191A9522FD362D400A3F8F5 /* Font */,
 				6191A94A2FD35BDE00A3F8F5 /* Home */,
@@ -165,6 +174,7 @@
 				6191A9212FD34A0D00A3F8F5 /* Preview Content */,
 				61CACB172FDA258D00003FE2 /* AppConatiner.swift */,
 				61CACB1E2FDA495900003FE2 /* NetworkError.swift */,
+				61C6FAE82FDB121900C433D5 /* TabBar.swift */,
 			);
 			path = DailySky;
 			sourceTree = "<group>";
@@ -231,6 +241,8 @@
 				616F4CD22FD78FF00082C3CD /* WeatherDataItem.swift */,
 				61770AEE2FD808D9000690BD /* ForecastDayItem.swift */,
 				61DDDE252FDAFC89009BDDE4 /* HomeBody.swift */,
+				61C6FAEC2FDB1B6000C433D5 /* HourItem.swift */,
+				61C6FAEE2FDB1F1A00C433D5 /* ForecastDaysList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,6 +257,38 @@
 				6191A9552FD3631500A3F8F5 /* SpaceGrotesk-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		61C6FAE42FDB11B000C433D5 /* Fav */ = {
+			isa = PBXGroup;
+			children = (
+				61C6FAE72FDB11D900C433D5 /* Model */,
+				61C6FAE62FDB11CF00C433D5 /* ViewModel */,
+				61C6FAE52FDB11BC00C433D5 /* View */,
+			);
+			path = Fav;
+			sourceTree = "<group>";
+		};
+		61C6FAE52FDB11BC00C433D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61C6FAEA2FDB124600C433D5 /* FavouriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		61C6FAE62FDB11CF00C433D5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		61C6FAE72FDB11D900C433D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		61CACB192FDA35AC00003FE2 /* UIModel */ = {
@@ -458,7 +502,9 @@
 				61F0C4562FD9402B00E2C7A8 /* Location.swift in Sources */,
 				616F4CD32FD78FF00082C3CD /* WeatherDataItem.swift in Sources */,
 				61CACB0E2FD9CAC100003FE2 /* LocalHomeServiceProtocol.swift in Sources */,
+				61C6FAE92FDB121900C433D5 /* TabBar.swift in Sources */,
 				61CACB122FD9F51300003FE2 /* HomeRepoProtocol.swift in Sources */,
+				61C6FAED2FDB1B6000C433D5 /* HourItem.swift in Sources */,
 				6191A91C2FD34A0B00A3F8F5 /* DailySkyApp.swift in Sources */,
 				61F0C45F2FD9430B00E2C7A8 /* ForecastDay.swift in Sources */,
 				61F0C45D2FD942F400E2C7A8 /* Forecast.swift in Sources */,
@@ -466,12 +512,14 @@
 				61770AEF2FD808D9000690BD /* ForecastDayItem.swift in Sources */,
 				6191A9512FD35CC700A3F8F5 /* LocationWeatherData.swift in Sources */,
 				6191A94F2FD35C1000A3F8F5 /* HomeView.swift in Sources */,
+				61C6FAEF2FDB1F1A00C433D5 /* ForecastDaysList.swift in Sources */,
 				61F0C4542FD93FE300E2C7A8 /* WeatherResponse.swift in Sources */,
 				61CACB1F2FDA495900003FE2 /* NetworkError.swift in Sources */,
 				61F0C46A2FD956F400E2C7A8 /* RemoteHomeServive.swift in Sources */,
 				61CACB142FD9F56600003FE2 /* HomeRepo.swift in Sources */,
 				61F0C46C2FD9AFFD00E2C7A8 /* Hour.swift in Sources */,
 				6191A9282FD34A0D00A3F8F5 /* DailySky.xcdatamodeld in Sources */,
+				61C6FAEB2FDB124600C433D5 /* FavouriteView.swift in Sources */,
 				61F0C4682FD94FFA00E2C7A8 /* RemoteHomeSeviceProtcol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

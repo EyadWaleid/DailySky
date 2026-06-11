@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-import SwiftUI
 
 struct LocationWeatherData: View {
     let weatherData: WeatherUIModel
-
+    
     var body: some View {
         VStack {
             Text(weatherData.country)
@@ -52,39 +51,29 @@ struct LocationWeatherData: View {
                         WeatherDataItem(image: "humidity", value: weatherData.humditiy, weatherItem: "humidity")
                     }
                 }
+     
             Spacer().frame(height: 30)
             if !weatherData.forecasts.isEmpty {
-                Text("Forecast for 3-days")
-                    .font(.custom("SpaceGrotesk-Bold", size: 18))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                List {
-                    ForEach(weatherData.forecasts) { item in
-                        NavigationLink(value: item) {
-                            ForecastDayItem(forecastDayItem: item)
-                        }
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                    }
+                ForecastDaysList(weatherData: weatherData)
                 }
-                .listStyle(.plain)
-                .scrollDisabled(true)
-                .frame(height: 350)
+              
+            }
+
+        
+            .navigationDestination(for: ForecastUIModel.self) { item in
+                HomeBody(weather: WeatherUIModel(
+                    country: weatherData.country,
+                    temperature: item.temperature,
+                    conditionText: item.conditionText,
+                    conditionIcon: item.conditionIcon,
+                    humditiy: item.humditiy,
+                    wind: item.wind,
+                    pressure: item.pressure,
+                    uv: item.uv,
+                    isDay: weatherData.isDay,
+                    forecasts: []
+                ),isDetail: true)
             }
         }
-        .navigationDestination(for: ForecastUIModel.self) { item in
-            HomeBody(weather: WeatherUIModel(
-                country: weatherData.country,
-                temperature: item.temperature,
-                conditionText: item.conditionText,
-                conditionIcon: item.conditionIcon,
-                humditiy: item.humditiy,
-                wind: item.wind,
-                pressure: item.pressure,
-                uv: item.uv,
-                isDay: weatherData.isDay,
-                forecasts: []
-            ),isDetail: true)
-        }
     }
-}
+
