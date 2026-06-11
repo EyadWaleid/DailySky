@@ -7,5 +7,5 @@
 
 import Foundation
 protocol RemoteHomeServiceProtcol{
-    
+    func fetchCurrentWeatherData(countryname:String) async throws -> WeatherResponse
 }

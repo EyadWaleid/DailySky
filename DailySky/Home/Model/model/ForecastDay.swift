@@ -6,17 +6,14 @@
 //
 
 import Foundation
-struct ForecastDay: Codable, Identifiable {
-
-    var id: String { date }
-
+struct ForecastDay: Decodable {
     let date: String
     let dateEpoch: Int
-    let day: DayWeather
+    let day: Day
+    let hour: [Hour]
 
     enum CodingKeys: String, CodingKey {
-        case date
+        case date, day, hour
         case dateEpoch = "date_epoch"
-        case day
     }
 }

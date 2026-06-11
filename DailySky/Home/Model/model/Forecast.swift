@@ -6,6 +6,7 @@
 //
 
 import Foundation
-struct Forecast: Codable {
+
+struct Forecast: Decodable {
     let forecastday: [ForecastDay]
 }

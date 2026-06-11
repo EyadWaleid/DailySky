@@ -7,23 +7,34 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject private var vm = DIContainer.shared.makeHomeViewModel()
+
     var body: some View {
-        ZStack {
-            Image("night")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-            
-            ScrollView {
-                LocationWeatherData()
-                    .padding(.horizontal, 24)
+      switch vm.state {
+            case .loading:
+                VStack {
+                    ProgressView()
+                    Text("Loading...")
+                        .foregroundColor(.white)
+                }
+            case .success(let weather):
+          NavigationStack{
+              HomeBody(weather: weather , isDetail: false)
+          }
+            case .error(let message):
+                VStack(spacing: 12) {
+                    Image(systemName: "wifi.slash")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                    Text(message)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                    Button("Retry") {
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding()
             }
         }
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+    
 }

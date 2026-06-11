@@ -5,9 +5,26 @@
 //  Created by Eyad waleed on 10/06/2026.
 //
 
-import Foundation
-struct WeatherResponse : Codable{
+struct WeatherResponse: Decodable {
     let location: Location
-       let current: CurrentWeather
-       let forecast: Forecast
+    let currentWeather: CurrentWeather
+    let forecast: Forecast
+  
+        
+        enum CodingKeys: String, CodingKey {
+            case location
+            case forecast
+            case currentWeather = "current"  
+        }
+    
 }
+
+
+
+
+
+
+
+
+
+
